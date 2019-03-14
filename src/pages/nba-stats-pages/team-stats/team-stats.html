@@ -1,15 +1,70 @@
-<!--
-  Generated template for the TeamPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="blue-green">
     <ion-title>Team Statistics</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label>Select a team:</ion-label>
+      <ion-select [(ngModel)]="team">
+        <ion-option *ngFor="let teamOption of teamOptions"
+          [value]="teamOption"
+          [selected]="teamOption === teamOptions[0]">
+            {{ teamOption }}
+        </ion-option>
+      </ion-select>
+    </ion-item>
+    
+    <button ion-button color="yellow-orange" (click)="getCommonTeamRoster()">Get Common Team Roster</button><br>
+    <button ion-button color="yellow-orange" (click)="getPlayerClutch()">Get Player Clutch</button>
 
+    <ion-item>
+      <ion-label>Ahead/Behind</ion-label>
+      <ion-select [(ngModel)]="aheadBehind">
+        <ion-option *ngFor="let aheadBehindOption of aheadBehindOptions"
+          [value]="aheadBehindOption"  
+          [selected]="aheadBehindOption === aheadBehindOptions[0]">
+          {{ aheadBehindOption }}
+        </ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Clutch Time</ion-label>
+      <ion-select [(ngModel)]="clutchTime">
+        <ion-option *ngFor="let clutchTimeOption of clutchTimeOptions"
+          [value]="clutchTimeOption"
+          [selected]="clutchTimeOption === clutchTimeOptions[0]">
+          {{ clutchTimeOption }}
+        </ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Point Differential</ion-label>
+      <ion-select [(ngModel)]="pointDiff">
+        <ion-option *ngFor="let pointDiffOption of pointDiffOptions"
+          [value]="pointDiffOption"
+          [selected]="pointDiffOption === pointDiffOptions[0]">
+          {{ pointDiffOption }}
+        </ion-option>
+      </ion-select>
+    </ion-item>
+
+    <button ion-button color="yellow-orange">Get Player Shooting</button><br>
+    <button ion-button color="yellow-orange">Get Player Stats</button><br>
+    <button ion-button color="yellow-orange">Get Shots</button><br>
+    <button ion-button color="yellow-orange">Get Team Clutch</button><br>
+    <button ion-button color="yellow-orange">Get Team Historical Leaders</button><br>
+    <button ion-button color="yellow-orange">Get Team Info Common</button><br>
+    <button ion-button color="yellow-orange">Get Team Player Dashboard</button><br>
+    <button ion-button color="yellow-orange">Get Tean Shooting</button><br>
+    <button ion-button color="yellow-orange">Get Team Splits</button>
+  </ion-list>
+
+  <div>
+    <pre>{{ result }}</pre>
+  </div>
 </ion-content>

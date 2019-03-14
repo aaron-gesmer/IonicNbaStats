@@ -79,7 +79,7 @@ export const playerPosition = [
   'G'
 ];
 
-export const pointDiff = [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ];
+export const pointDiff = [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0 ];
 
 export const ptMeasureType = [
   'SpeedDistance',

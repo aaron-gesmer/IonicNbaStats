@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar color="dark">
+  <ion-navbar color="blue-green">
     <ion-title>Player Statistics</ion-title>
   </ion-navbar>
 </ion-header>
@@ -12,11 +12,11 @@
     padding>
   </ion-searchbar>
   
-  <button ion-button color="danger" (click)="getPlayerInfo(playerName.value)">Get Player Info</button><br>
-  <button ion-button color="danger" (click)="getPlayerProfile(playerName.value)">Get Player Profile</button><br>
+  <button ion-button color="yellow-orange" (click)="getPlayerInfo(playerName.value)">Get Player Info</button><br>
+  <button ion-button color="yellow-orange" (click)="getPlayerProfile(playerName.value)">Get Player Profile</button><br>
 
   <ion-list>
-    <button ion-button color="danger" (click)="getPlayerSplits(playerName.value)">Get Player Splits</button>
+    <button ion-button color="yellow-orange" (click)="getPlayerSplits(playerName.value)">Get Player Splits</button>
     <ion-item>
       <ion-label>Outcome</ion-label>
       <ion-select [(ngModel)]="outcome">
