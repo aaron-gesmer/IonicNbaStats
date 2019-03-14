@@ -1,15 +1,83 @@
-<!--
-  Generated template for the LeaguePage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="dark">
     <ion-title>League Statistics</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h1>Hello, World!</h1>
+  <button ion-button color="danger" (click)="getHomepage()">Get Homepage</button>
+  <ion-list>
+    <ion-item>
+      <ion-label>Game Scope</ion-label>
+      <ion-select [(ngModel)]="gameScope">
+        <ion-option *ngFor="let gameScopeOption of gameScopeOptions"
+          [value]="gameScopeOption"
+          [selected]="gameScopeOption === gameScopeOptions[0]">
+            {{ gameScopeOption }}
+        </ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Player/Team</ion-label>
+      <ion-select [(ngModel)]="playerOrTeam">
+        <ion-option *ngFor="let playerTeamOption of playerTeamOptions"
+          [value]="playerTeamOption"
+          [selected]="playerTeamOption === playerTeamOptions[0]">
+            {{ playerTeamOption }}
+        </ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>All Players/Rookies</ion-label>
+      <ion-select [(ngModel)]="playerScope">
+        <ion-option *ngFor="let playerScopeOption of playerScopeOptions"
+          [value]="playerScopeOption"
+          [selected]="playerScopeOption === playerScopeOptions[0]">
+            {{ playerScopeOption }}
+        </ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Stat Type</ion-label>
+      <ion-select [(ngModel)]="statType">
+        <ion-option *ngFor="let statTypeOption of statTypeOptions"
+          [value]="statTypeOption"
+          [selected]="statTypeOption === statTypeOptions[0]">
+            {{ statTypeOption }}
+        </ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+  <button ion-button color="danger" (click)="getPlayerTracking()">Get Player Tracking</button>
+  <ion-list>
+    <ion-item>
+      <ion-label>Measurement Type</ion-label>
+      <ion-select [(ngModel)]="ptMeasureType">
+        <ion-option *ngFor="let ptMeasureTypeOption of ptMeasureTypeOptions"
+          [value]="ptMeasureTypeOption"
+          [selected]="ptMeasureTypeOption">
+            {{ ptMeasureTypeOption }}
+        </ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Player Position</ion-label>
+      <ion-select [(ngModel)]="playerPosition">
+        <ion-option value="">All</ion-option>
+        <ion-option *ngFor="let playerPositionOption of playerPositionOptions"
+          [value]="playerPositionOption">
+          {{ playerPositionOption }}
+        </ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+  <div>
+    <pre>{{ result }}</pre>
+  </div>
 </ion-content>
