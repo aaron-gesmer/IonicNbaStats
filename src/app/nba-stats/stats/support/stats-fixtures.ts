@@ -31,6 +31,25 @@ export const teams = [
   'Washington Wizards'
 ];
 
+export const location = [
+  'Home',
+  'Away'
+];
+
+export const conferences = [
+  'East',
+  'West'
+];
+
+export const divisions = [
+  'Atlantic',
+  'Central',
+  'Southeast',
+  'Northwest',
+  'Pacific',
+  'Southwest'
+];
+
 export const aheadBehind = [
   'Ahead or Behind',
   'Behind or Tied',

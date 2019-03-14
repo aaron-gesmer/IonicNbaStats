@@ -1,15 +1,77 @@
-<!--
-  Generated template for the PlayerPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="dark">
     <ion-title>Player Statistics</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+  <ion-searchbar #playerName
+    type="search"
+    placeholder="Enter a player's name"
+    clear-input=true
+    padding>
+  </ion-searchbar>
+  
+  <button ion-button color="danger" (click)="getPlayerInfo(playerName.value)">Get Player Info</button><br>
+  <button ion-button color="danger" (click)="getPlayerProfile(playerName.value)">Get Player Profile</button><br>
 
+  <ion-list>
+    <button ion-button color="danger" (click)="getPlayerSplits(playerName.value)">Get Player Splits</button>
+    <ion-item>
+      <ion-label>Outcome</ion-label>
+      <ion-select [(ngModel)]="outcome">
+        <ion-option value="">All</ion-option>
+        <ion-option value="W">Wins</ion-option>
+        <ion-option value="L">Losses</ion-option>
+      </ion-select>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label>Location</ion-label>
+      <ion-select [(ngModel)]="location">
+        <ion-option value="">All</ion-option>
+        <ion-option *ngFor="let locationOption of locationOptions"
+          [value]="locationOption">
+          {{ locationOption }}
+        </ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>VS Conference</ion-label>
+      <ion-select [(ngModel)]="oppConference">
+        <ion-option value="">All</ion-option>
+        <ion-option *ngFor="let conferenceOption of conferenceOptions"
+          [value]="conferenceOption">
+          {{ conferenceOption }}
+        </ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>VS Division</ion-label>
+      <ion-select [(ngModel)]="oppDivision">
+        <ion-option value="">All</ion-option>
+        <ion-option *ngFor="let divisionOption of divisionOptions"
+          [value]="divisionOption">
+          {{ divisionOption }}
+        </ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Opposing Team</ion-label>
+      <ion-select [(ngModel)]="oppTeam">
+        <ion-option value="">All</ion-option>
+        <ion-option *ngFor="let oppTeamOption of oppTeamOptions"
+          [value]="oppTeamOption">
+          {{ oppTeamOption }}
+        </ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+  <div>
+    <pre>{{ result }}</pre>
+  </div>
 </ion-content>

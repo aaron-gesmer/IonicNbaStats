@@ -20,8 +20,13 @@ export class NbaStatsService {
     return await stats.player.playerProfile(playerName);
   }
 
-  async getPlayerSplits(playerName: string) {
-    return await stats.player.playerSplits(playerName);
+  async getPlayerSplits(playerName: string,
+    outcome: string,
+    location: string,
+    oppConference: string,
+    oppDivision: string,
+    oppTeamName: string) {
+    return await stats.player.playerSplits(playerName, outcome, location, oppConference, oppDivision, oppTeamName);
   }
 
   async getCommonTeamRoster(teamName: string) {
