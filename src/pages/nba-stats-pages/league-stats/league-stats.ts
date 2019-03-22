@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, LoadingController, NavController, NavParams } from 'ionic-angular';
 
 import { NbaStatsService } from '../../../app/nba-stats/nba-stats.service';
 import * as statsFixtures from '../../../app/nba-stats/stats/support/stats-fixtures';
@@ -28,11 +28,36 @@ export class LeagueStatsPage {
   ptMeasureType = this.ptMeasureTypeOptions[0];
   playerPosition = '';
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,private nbaStatsService: NbaStatsService) { }
+  // Tables:
+  scoringLeaders: any;
+  reboundLeaders: any;
+  assistLeaders: any;
+  stealsLeaders: any;
+  fgPctLeaders: any;
+  ftPctLeaders: any;
+  fg3PctLeaders: any;
+  blocksLeaders: any;
+
+  constructor(public loadingController: LoadingController,
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private nbaStatsService: NbaStatsService) { }
 
   async getHomepage() {
+    const loadingAlert = this.loadingController.create({ content: 'Getting homepage stats...' });
+    loadingAlert.present();
     const homepage = await this.nbaStatsService.getHomepage(this.gameScope, this.playerOrTeam, this.playerScope, this.statType);
-    this.print(homepage);
+    
+    this.scoringLeaders = homepage.homePageStat1;
+    this.reboundLeaders = homepage.homePageStat2;
+    this.assistLeaders = homepage.homePageStat3;
+    this.stealsLeaders = homepage.homePageStat4;
+    this.fgPctLeaders = homepage.homePageStat5;
+    this.ftPctLeaders = homepage.homePageStat6;
+    this.fg3PctLeaders = homepage.homePageStat7;
+    this.blocksLeaders = homepage.homePageStat8;
+
+    loadingAlert.dismiss();
   }
 
   async getPlayerTracking() {
@@ -47,5 +72,6 @@ export class LeagueStatsPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LeaguePage');
+    this.getHomepage();
   }
 }

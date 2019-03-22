@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar color="blue-green">
+  <ion-navbar color="red-purple">
     <ion-title color="yellow-orange">League Statistics</ion-title>
   </ion-navbar>
 </ion-header>
@@ -77,7 +77,166 @@
     </ion-item>
   </ion-list>
 
-  <div>
-    <pre>{{ result }}</pre>
+  <div class="homepage-results">
+    <ion-card padding>
+      <ion-card-title color="blue-green">Scoring Leaders</ion-card-title>
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col>Rank</ion-col>
+            <ion-col>Name</ion-col>
+            <ion-col>Team</ion-col>
+            <ion-col>Points Per Game</ion-col>
+          </ion-row>
+          <ion-row *ngFor="let scoringLeader of scoringLeaders">
+            <ion-col>{{ scoringLeader.rank }}</ion-col>
+            <ion-col>{{ scoringLeader.player }}</ion-col>
+            <ion-col>{{ scoringLeader.teamName }}</ion-col>
+            <ion-col>{{ scoringLeader.pts }}</ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card padding>
+      <ion-card-title color="blue-green">Rebound Leaders</ion-card-title>
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col>Rank</ion-col>
+            <ion-col>Name</ion-col>
+            <ion-col>Team</ion-col>
+            <ion-col>Rebounds Per Game</ion-col>
+          </ion-row>
+          <ion-row *ngFor="let reboundLeader of reboundLeaders">
+            <ion-col>{{ reboundLeader.rank }}</ion-col>
+            <ion-col>{{ reboundLeader.player }}</ion-col>
+            <ion-col>{{ reboundLeader.teamName }}</ion-col>
+            <ion-col>{{ reboundLeader.reb }}</ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card padding>
+      <ion-card-title color="blue-green">Assist Leaders</ion-card-title>
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col>Rank</ion-col>
+            <ion-col>Name</ion-col>
+            <ion-col>Team</ion-col>
+            <ion-col>Assists Per Game</ion-col>
+          </ion-row>
+          <ion-row *ngFor="let assistLeader of assistLeaders">
+            <ion-col>{{ assistLeader.rank }}</ion-col>
+            <ion-col>{{ assistLeader.player }}</ion-col>
+            <ion-col>{{ assistLeader.teamName }}</ion-col>
+            <ion-col>{{ assistLeader.ast }}</ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card padding>
+      <ion-card-title color="blue-green">Steals Leaders</ion-card-title>
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col>Rank</ion-col>
+            <ion-col>Name</ion-col>
+            <ion-col>Team</ion-col>
+            <ion-col>Steals Per Game</ion-col>
+          </ion-row>
+          <ion-row *ngFor="let stealsLeader of stealsLeaders">
+            <ion-col>{{ stealsLeader.rank }}</ion-col>
+            <ion-col>{{ stealsLeader.player }}</ion-col>
+            <ion-col>{{ stealsLeader.teamName }}</ion-col>
+            <ion-col>{{ stealsLeader.stl }}</ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card padding>
+      <ion-card-title color="blue-green">Field Goal% Leaders</ion-card-title>
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col>Rank</ion-col>
+            <ion-col>Name</ion-col>
+            <ion-col>Team</ion-col>
+            <ion-col>Field Goal %</ion-col>
+          </ion-row>
+          <ion-row *ngFor="let fgPctLeader of fgPctLeaders">
+            <ion-col>{{ fgPctLeader.rank }}</ion-col>
+            <ion-col>{{ fgPctLeader.player }}</ion-col>
+            <ion-col>{{ fgPctLeader.teamName }}</ion-col>
+            <ion-col>{{ fgPctLeader.fgPct }}</ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card padding>
+      <ion-card-title color="blue-green">Free Throw% Leaders</ion-card-title>
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col>Rank</ion-col>
+            <ion-col>Name</ion-col>
+            <ion-col>Team</ion-col>
+            <ion-col>Free Throw %</ion-col>
+          </ion-row>
+          <ion-row *ngFor="let ftPctLeader of ftPctLeaders">
+            <ion-col>{{ ftPctLeader.rank }}</ion-col>
+            <ion-col>{{ ftPctLeader.player }}</ion-col>
+            <ion-col>{{ ftPctLeader.teamName }}</ion-col>
+            <ion-col>{{ ftPctLeader.ftPct }}</ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card padding>
+      <ion-card-title color="blue-green">3 Point FG% Leaders</ion-card-title>
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col>Rank</ion-col>
+            <ion-col>Name</ion-col>
+            <ion-col>Team</ion-col>
+            <ion-col>3 Point FG%</ion-col>
+          </ion-row>
+          <ion-row *ngFor="let fg3PctLeader of fg3PctLeaders">
+            <ion-col>{{ fg3PctLeader.rank }}</ion-col>
+            <ion-col>{{ fg3PctLeader.player }}</ion-col>
+            <ion-col>{{ fg3PctLeader.teamName }}</ion-col>
+            <ion-col>{{ fg3PctLeader.fg3Pct }}</ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card padding>
+      <ion-card-title color="blue-green">Blocks Leaders</ion-card-title>
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col>Rank</ion-col>
+            <ion-col>Name</ion-col>
+            <ion-col>Team</ion-col>
+            <ion-col>Blocks Per Game</ion-col>
+          </ion-row>
+          <ion-row *ngFor="let blocksLeader of blocksLeaders">
+            <ion-col>{{ blocksLeader.rank }}</ion-col>
+            <ion-col>{{ blocksLeader.player }}</ion-col>
+            <ion-col>{{ blocksLeader.teamName }}</ion-col>
+            <ion-col>{{ blocksLeader.blk }}</ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+    <!-- <pre>{{ result }}</pre> -->
   </div>
 </ion-content>
